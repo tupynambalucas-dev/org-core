@@ -1,0 +1,12 @@
+[submodule ".github"]
+	path = .github
+	url = git@github.com:tupynambalucas-dev/.github.git
+	branch = main
+[submodule "platform"]
+	path = platform
+	url = git@github.com:tupynambalucas-dev/platform.git
+	branch = develop
+[submodule "docs"]
+	path = docs
+	url = git@github.com:tupynambalucas-dev/docs.git
+	branch = develop

@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# OS and Editor files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+.idea/
+
+# Local untracked projects / folders
+omni-channel/
+tessel/

@@ -1,0 +1,12 @@
+{
+  "name": "@tupynambalucas-dev/meta",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Meta-repository orchestrating the tupynambalucas-dev ecosystem.",
+  "type": "module",
+  "scripts": {
+    "sync": "git submodule update --init --recursive --remote --merge",
+    "checkout:branches": "git submodule foreach 'git checkout $(git config -f $toplevel/.gitmodules submodule.$name.branch || echo main)'",
+    "status": "git submodule status"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "folders": [
+    {
+      "name": ".github (Org Governance)",
+      "path": ".github"
+    },
+    {
+      "name": "platform (Core Monorepo)",
+      "path": "platform"
+    },
+    {
+      "name": "docs (Documentation Hub)",
+      "path": "docs"
+    }
+  ],
+  "settings": {
+    "git.autoRepositoryDetection": true,
+    "files.exclude": {
+      "**/.git": false
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "bradlc.vscode-tailwindcss",
+      "d-koppenhagen.file-tree-to-text-generator",
+      "dbaeumer.vscode-eslint",
+      "emanuelebartolesi.taskdeck",
+      "esbenp.prettier-vscode",
+      "github.vscode-github-actions",
+      "redhat.vscode-yaml",
+      "shd101wyy.markdown-preview-enhanced",
+      "unifiedjs.vscode-mdx"
+    ]
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Antigravity CLI (Meta-Repo Scope)",
+        "type": "process",
+        "command": "wt.exe",
+        "windows": {
+          "command": "wt.exe",
+          "args": [
+            "-d",
+            "${workspaceFolder:.github (Org Governance)}\\..",
+            "powershell.exe",
+            "-NoExit",
+            "-Command",
+            "agy"
+          ]
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "Submodules: Update & Sync",
+        "type": "shell",
+        "command": "git submodule update --remote --merge",
+        "problemMatcher": []
+      }
+    ]
+  }
+}
