@@ -1,0 +1,10 @@
+{
+  "entries": [
+    {
+      "path": "docs/.agents/skills"
+    },
+    {
+      "path": "platform/.agents/skills"
+    }
+  ]
+}

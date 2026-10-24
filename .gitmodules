@@ -10,3 +10,7 @@
 	path = docs
 	url = git@github.com:tupynambalucas-dev/docs.git
 	branch = develop
+[submodule "agent-toolkit"]
+	path = agent-toolkit
+	url = git@github.com:tupynambalucas-dev/agent-toolkit.git
+	branch = main

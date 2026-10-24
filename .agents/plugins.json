@@ -1,0 +1,10 @@
+{
+  "entries": [
+    {
+      "path": "agent-toolkit"
+    },
+    {
+      "path": "platform/.agents/plugins"
+    }
+  ]
+}

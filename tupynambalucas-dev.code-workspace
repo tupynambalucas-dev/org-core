@@ -11,6 +11,10 @@
     {
       "name": "docs (Documentation Hub)",
       "path": "docs"
+    },
+    {
+      "name": "agent-toolkit (Universal Agent Toolkit)",
+      "path": "agent-toolkit"
     }
   ],
   "settings": {
