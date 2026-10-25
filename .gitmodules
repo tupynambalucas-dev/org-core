@@ -2,15 +2,23 @@
 	path = .github
 	url = git@github.com:tupynambalucas-dev/.github.git
 	branch = main
+	update = merge
+	fetchRecurseSubmodules = on-demand
 [submodule "platform"]
 	path = platform
 	url = git@github.com:tupynambalucas-dev/platform.git
 	branch = develop
+	update = merge
+	fetchRecurseSubmodules = on-demand
 [submodule "docs"]
 	path = docs
 	url = git@github.com:tupynambalucas-dev/docs.git
 	branch = develop
+	update = merge
+	fetchRecurseSubmodules = on-demand
 [submodule "agent-toolkit"]
 	path = agent-toolkit
 	url = git@github.com:tupynambalucas-dev/agent-toolkit.git
 	branch = main
+	update = merge
+	fetchRecurseSubmodules = on-demand
