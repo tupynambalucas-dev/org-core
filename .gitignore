@@ -8,6 +8,9 @@ Thumbs.db
 ehthumbs.db
 .idea/
 
+# Local Git Config Templates and Backups
+git-config/
+
 # Environment and Secrets (CRITICAL)
 .env
 *.env.*
