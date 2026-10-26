@@ -16,9 +16,9 @@
 	branch = main
 	update = merge
 	fetchRecurseSubmodules = on-demand
-[submodule "agent-toolkit"]
-	path = agent-toolkit
-	url = git@github.com:tupynambalucas-dev/agent-toolkit.git
+[submodule "agent-mesh"]
+	path = agent-mesh
+	url = git@github.com:tupynambalucas-dev/agent-mesh.git
 	branch = main
 	update = merge
 	fetchRecurseSubmodules = on-demand

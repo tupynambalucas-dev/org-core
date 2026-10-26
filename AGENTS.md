@@ -7,7 +7,7 @@ This document serves as the root context router (Layer 1) for AI agents operatin
 
 - [README.md](./README.md): Primary developer documentation and submodule orchestration runbook.
 - [.github](./.github/AGENTS.md): Organization governance, community health standards, and public profile.
-- [agent-toolkit](./agent-toolkit/README.md): Enterprise AI agent governance plugin, shared MCP connectors, and skills.
+- [agent-mesh](./agent-mesh/README.md): Enterprise AI agent governance plugin, shared MCP connectors, domain plugins, and modular skills.
 - [platform](./platform/AGENTS.md): Core platform monorepo containing services, apps, and Kubernetes manifests.
 - [docs](./docs/AGENTS.md): Sovereign documentation hub built with Docusaurus v3 and Crowdin.
 
@@ -23,7 +23,7 @@ This document serves as the root context router (Layer 1) for AI agents operatin
 When committing updates in child repositories, stage the updated submodule pointers in `org-core`:
 
 ```bash
-git add agent-toolkit platform docs .github
+git add agent-mesh platform docs .github
 git commit -S -m "chore(submodules): bump pointers to latest development heads"
 git push origin main
 ```

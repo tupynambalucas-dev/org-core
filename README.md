@@ -15,7 +15,7 @@ graph TD
   Meta["org-core (Umbrella Meta-Repository)"]
 
   Meta --> Sub1[".github (Governance & Default Health)"]
-  Meta --> Sub2["agent-toolkit (Enterprise AI Agent Governance)"]
+  Meta --> Sub2["agent-mesh (Enterprise AI Agent Mesh)"]
   Meta --> Sub3["platform (Core Platform Monorepo)"]
   Meta --> Sub4["docs (Sovereign Documentation Hub)"]
 
@@ -28,7 +28,7 @@ graph TD
 | Submodule | Target Branch | Purpose |
 | :--- | :--- | :--- |
 | [`.github`](./.github) | `main` | Organization-wide governance, community health files, public profile, and CI defaults. |
-| [`agent-toolkit`](./agent-toolkit) | `main` | Universal AI agent governance plugin, shared MCP connectors, security rules, and skills. |
+| [`agent-mesh`](./agent-mesh) | `main` | Universal AI agent governance plugin, shared MCP connectors, domain plugins, and modular skills. |
 | [`platform`](./platform) | `develop` | Monorepo hosting Kubernetes manifests, cortex AI gateway, studio tools, and services. |
 | [`docs`](./docs) | `develop` | Sovereign documentation portal built on Docusaurus v3 with Crowdin localization. |
 
@@ -57,15 +57,15 @@ infisical run --projectId <PROJECT_ID> --env dev -- agy
 
 #### B. Standalone Workspace Mode
 
-When developing within an isolated submodule directory (`agent-toolkit/`, `platform/`, or `docs/`):
+When developing within an isolated submodule directory (`agent-mesh/`, `platform/`, or `docs/`):
 
 - Each child repository contains its own `.env.example` template.
 - Copy `.env.example` to `.env` inside the submodule root to test and execute tools without dependencies on parent repositories.
 - Individual submodules can also be run directly with project-scoped Infisical commands:
 
 ```bash
-# Inside agent-toolkit:
-infisical run --projectId <AGENT_TOOLKIT_PROJECT_ID> --env dev -- <command>
+# Inside agent-mesh:
+infisical run --projectId <AGENT_MESH_PROJECT_ID> --env dev -- <command>
 
 # Inside platform:
 infisical run --projectId <PLATFORM_PROJECT_ID> --env dev -- <command>
@@ -110,7 +110,7 @@ All development in this meta-repository and its submodules must comply with orga
 4. **Submodule Pointer Updates**: When committing changes to submodules, stage and commit the updated pointers in `org-core`:
 
 ```bash
-git add agent-toolkit platform docs .github
+git add agent-mesh platform docs .github
 git commit -S -m "chore(submodules): bump pointers to latest development heads"
 git push origin main
 ```

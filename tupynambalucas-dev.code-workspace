@@ -13,8 +13,8 @@
       "path": "docs"
     },
     {
-      "name": "agent-toolkit (Universal Agent Toolkit)",
-      "path": "agent-toolkit"
+      "name": "agent-mesh (Universal Agent Mesh)",
+      "path": "agent-mesh"
     }
   ],
   "settings": {

@@ -8,6 +8,6 @@
     "sync": "git submodule update --init --recursive --remote --merge",
     "checkout:branches": "git submodule foreach 'git checkout $(git config -f $toplevel/.gitmodules submodule.$name.branch || echo main)'",
     "status": "git submodule status",
-    "verify:workstation": "powershell -ExecutionPolicy Bypass -File agent-toolkit/scripts/verify-workstation.ps1"
+    "verify:workstation": "powershell -ExecutionPolicy Bypass -File agent-mesh/scripts/verify-workstation.ps1"
   }
 }
