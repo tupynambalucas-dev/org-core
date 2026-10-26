@@ -7,13 +7,13 @@
 [submodule "platform"]
 	path = platform
 	url = git@github.com:tupynambalucas-dev/platform.git
-	branch = develop
+	branch = main
 	update = merge
 	fetchRecurseSubmodules = on-demand
 [submodule "docs"]
 	path = docs
 	url = git@github.com:tupynambalucas-dev/docs.git
-	branch = develop
+	branch = main
 	update = merge
 	fetchRecurseSubmodules = on-demand
 [submodule "agent-toolkit"]
