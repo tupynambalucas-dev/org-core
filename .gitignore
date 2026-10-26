@@ -11,6 +11,9 @@ ehthumbs.db
 # Local Git Config Templates and Backups
 git-config/
 
+# Legacy Deprecated Submodule Directories (Migrated to agent-mesh)
+agent-toolkit/
+
 # Environment and Secrets (CRITICAL)
 .env
 *.env.*
