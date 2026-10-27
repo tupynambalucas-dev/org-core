@@ -1,7 +1,7 @@
 {
   "entries": [
     {
-      "path": "agent-mesh"
+      "path": "agent-mesh/plugins"
     },
     {
       "path": "platform/.agents/plugins"
