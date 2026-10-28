@@ -7,7 +7,7 @@ This document serves as the root context router (Layer 1) for AI agents operatin
 
 - [README.md](./README.md): Primary developer documentation and submodule orchestration runbook.
 - [.github](./.github/AGENTS.md): Organization governance, community health standards, and public profile.
-- [agent-mesh](./agent-mesh/README.md): Enterprise AI agent governance plugin, shared MCP connectors, domain plugins, and modular skills.
+- [agent-mesh](./agent-mesh/AGENTS.md): Enterprise AI agent mesh context router, MCP packages, domain plugins, and modular skills.
 - [platform](./platform/AGENTS.md): Core platform monorepo containing services, apps, and Kubernetes manifests.
 - [docs](./docs/AGENTS.md): Sovereign documentation hub built with Docusaurus v3 and Crowdin.
 
