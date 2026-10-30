@@ -1,6 +1,10 @@
 {
   "folders": [
     {
+      "name": "org-core (Meta-Repository Root)",
+      "path": "."
+    },
+    {
       "name": ".github (Org Governance)",
       "path": ".github"
     },
@@ -56,7 +60,7 @@
           "command": "wt.exe",
           "args": [
             "-d",
-            "${workspaceFolder:.github (Org Governance)}\\..",
+            "${workspaceFolder:org-core (Meta-Repository Root)}",
             "powershell.exe",
             "-NoExit",
             "-Command",
