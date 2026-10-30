@@ -19,6 +19,15 @@
   ],
   "settings": {
     "git.autoRepositoryDetection": true,
+    "search.useIgnoreFiles": false,
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/.pnpm-store": true,
+      "**/.git": true,
+      "**/dist": true,
+      "**/.docusaurus": true,
+      "**/.turbo": true
+    },
     "files.exclude": {
       "**/.git": false
     }
