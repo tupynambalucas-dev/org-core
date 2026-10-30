@@ -27,10 +27,14 @@ graph TD
 
 | Submodule | Target Branch | Purpose |
 | :--- | :--- | :--- |
-| [`.github`](./.github) | `main` | Organization-wide governance, community health files, public profile, and CI defaults. |
-| [`agent-mesh`](./agent-mesh) | `main` | Universal AI agent governance plugin, shared MCP connectors, domain plugins, and modular skills. |
-| [`platform`](./platform) | `develop` | Monorepo hosting Kubernetes manifests, cortex AI gateway, studio tools, and services. |
-| [`docs`](./docs) | `develop` | Sovereign documentation portal built on Docusaurus v3 with Crowdin localization. |
+| [`.github`](./.github/README.md) | `main` | Organization-wide governance, community health files, public profile, and IDE templates. |
+| [`agent-mesh`](./agent-mesh/README.md) | `main` | Universal AI agent governance monorepo, shared MCP connectors, domain plugins, and modular skills. |
+| [`platform`](./platform/README.md) | `main` | Domain monorepo hosting Kubernetes manifests, Cortex AI gateway, studio tools, and services. |
+| [`docs`](./docs/README.md) | `main` | Sovereign documentation portal built on Docusaurus v3 with Crowdin localization. |
+
+### Multi-Root IDE Workspace
+
+Open [tupynambalucas-dev.code-workspace](./tupynambalucas-dev.code-workspace) in VS Code or Antigravity IDE to mount all four submodules (`.github`, `platform`, `docs`, `agent-mesh`) in a unified multi-root workspace with integrated synchronization tasks.
 
 ---
 
@@ -39,7 +43,7 @@ graph TD
 The ecosystem implements a 3-tier fallback resolution architecture to ensure development environments operate smoothly whether launched with or without active Infisical sessions:
 
 1. **Process Environment**: Variables already exported in the current shell session or injected via `infisical run`.
-2. **Local and Ancestor `.env` Files**: If environment variables are absent from the shell, tools like `scripts/mcp-runner.js` walk up the directory tree to discover `.env` files located in the current workspace or at the `org-core` root.
+2. **Local and Ancestor `.env` Files**: If environment variables are absent from the shell, tools like `agent-mesh/scripts/mcp-gateway-router.js` walk up the directory tree to discover `.env` files located in the current workspace or at the `org-core` root.
 3. **Infisical CLI**: If neither process variables nor local `.env` files satisfy the requirements, the system invokes `infisical export` using authenticated machine credentials or local login sessions.
 
 ### Execution Modes
@@ -107,16 +111,18 @@ All development in this meta-repository and its submodules must comply with orga
 1. **Cryptographic Signatures**: All Git commits and annotated tags MUST be signed using SSH (`git commit -S -m "..."`). Unsigned commits are rejected by repository rulesets.
 2. **Conventional Commits**: Commit messages must follow the Conventional Commits v1.0.0 specification (`feat`, `fix`, `docs`, `chore`, etc.).
 3. **Zero-Emoji Policy**: Emojis are strictly prohibited in commit messages, documentation, code comments, and chat responses.
-4. **Submodule Pointer Updates**: When committing changes to submodules, stage and commit the updated pointers in `org-core`:
+4. **Submodule Pointer Updates**: Direct human pushes to `main` are blocked by repository rulesets. After merging child Pull Requests into each submodule's `main` branch, advance submodule pointers in `org-core` via a signed Pull Request (or automated GitHub App GraphQL dispatch):
 
 ```bash
+git switch -c chore/bump-submodules
 git add agent-mesh platform docs .github
-git commit -S -m "chore(submodules): bump pointers to latest development heads"
-git push origin main
+git commit -S -m "chore(submodules): bump submodule pointers to latest main commits"
+git push -u origin chore/bump-submodules
+gh pr create --base main --title "chore(submodules): bump submodule pointers to latest main commits"
 ```
 
 ---
 
 ## License
 
-This meta-repository orchestration configuration is licensed under the [MIT License](https://github.com/tupynambalucas-dev/.github/blob/main/LICENSE).
+Licensed under the [Apache License 2.0](./LICENSE). Copyright (c) 2026 tupynambalucas.dev.
