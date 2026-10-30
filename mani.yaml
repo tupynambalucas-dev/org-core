@@ -1,0 +1,78 @@
+# Manifest specification: https://manicli.com
+# tupynambalucas-dev Organizational Workspace Manifest
+
+projects:
+  .github:
+    path: .github
+    url: git@github.com:tupynambalucas-dev/.github.git
+    desc: Organization-wide governance, community health standards, and public profile.
+    tags:
+      - governance
+      - health
+      - core
+
+  agent-mesh:
+    path: agent-mesh
+    url: git@github.com:tupynambalucas-dev/agent-mesh.git
+    desc: Universal AI agent governance mesh, MCP servers, domain plugins, and skills.
+    tags:
+      - ai
+      - agents
+      - mesh
+      - core
+
+  platform:
+    path: platform
+    url: git@github.com:tupynambalucas-dev/platform.git
+    desc: Domain monorepo hosting Kubernetes manifests, Cortex AI gateway, and services.
+    tags:
+      - platform
+      - k8s
+      - monorepo
+      - core
+
+  docs:
+    path: docs
+    url: git@github.com:tupynambalucas-dev/docs.git
+    desc: Sovereign technical documentation hub built on Docusaurus v3 and Crowdin.
+    tags:
+      - documentation
+      - docusaurus
+      - core
+
+targets:
+  all:
+    all: true
+
+tasks:
+  status:
+    desc: Check Git status across all projects
+    target: all
+    cmd: git status -s
+    spec:
+      output: table
+
+  fetch:
+    desc: Fetch latest changes from remote origin across all projects
+    target: all
+    cmd: git fetch origin --prune
+    spec:
+      output: stream
+
+  pull:
+    desc: Pull latest main branch updates across all projects
+    target: all
+    cmd: git pull origin main
+    spec:
+      output: stream
+
+  branch:
+    desc: Display current active branch for all projects
+    target: all
+    cmd: git branch --show-current
+    spec:
+      output: table
+
+  verify-workstation:
+    desc: Run organizational workstation verification script
+    cmd: powershell -ExecutionPolicy Bypass -File agent-mesh/scripts/verify-workstation.ps1

@@ -5,8 +5,9 @@ This document serves as the root context router (Layer 1) for AI agents operatin
 
 ## Workspace Navigation
 
-- [README.md](./README.md): Primary developer documentation and submodule orchestration runbook.
-- [tupynambalucas-dev.code-workspace](./tupynambalucas-dev.code-workspace): Canonical multi-root IDE workspace binding all four core submodules.
+- [README.md](./README.md): Primary developer documentation and Mani workspace orchestration runbook.
+- [mani.yaml](./mani.yaml): Declarative multi-repository manifest managing repositories, remotes, and batch tasks.
+- [tupynambalucas-dev.code-workspace](./tupynambalucas-dev.code-workspace): Canonical multi-root IDE workspace binding all four core repositories.
 - [LICENSE](./LICENSE): Apache License 2.0 governing meta-repository orchestration assets.
 - [.github](./.github/AGENTS.md): Organization governance, community health standards, and public profile.
 - [agent-mesh](./agent-mesh/AGENTS.md): Enterprise AI agent mesh context router, MCP packages, domain plugins, and modular skills.
@@ -21,17 +22,24 @@ This document serves as the root context router (Layer 1) for AI agents operatin
 - **Zero-Emoji Policy**: Emojis are strictly forbidden across all code, PRs, comments, and agent interactions.
 - **Secret Hygiene**: Never commit plaintext tokens. Environment variables cascade via Infisical or local/parent `.env` files.
 - **License**: `Apache-2.0` (`Copyright (c) 2026 tupynambalucas.dev`) across all public repositories, packages, and plugins.
+- **Workspace Orchestration**: Repositories are managed as sovereign Git repositories coordinated via `mani`. Git submodules and `160000` commit gitlinks are deprecated and removed.
 
-## Submodule Pointer Updates
+## Multi-Repository Operations with Mani
 
-Direct pushes to `main` are blocked by repository rulesets. After child repository Pull Requests are merged into their respective `main` branches, update submodule gitlink pointers in `org-core` via a signed Pull Request (or automated GitHub App GraphQL `createCommitOnBranch` dispatch):
+Cross-repository commands and queries are executed using `mani`:
 
 ```bash
-git switch -c chore/bump-submodules
-git add agent-mesh platform docs .github
-git commit -S -m "chore(submodules): bump submodule pointers to latest main commits"
-git push -u origin chore/bump-submodules
-gh pr create --base main --title "chore(submodules): bump submodule pointers to latest main commits"
+# Check status across all managed repositories
+mani run status
+
+# Fetch remote changes for all repositories
+mani run fetch
+
+# Pull latest main across all repositories
+mani run pull
+
+# Display current branches
+mani run branch
 ```
 
 ## Required Skills

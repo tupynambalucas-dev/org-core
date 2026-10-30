@@ -11,6 +11,12 @@ ehthumbs.db
 # Local Git Config Templates and Backups
 git-config/
 
+# Managed Repositories (Orchestrated independently via mani)
+.github/
+agent-mesh/
+platform/
+docs/
+
 # Legacy Deprecated Submodule Directories (Migrated to agent-mesh)
 agent-toolkit/
 
