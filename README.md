@@ -2,7 +2,7 @@
 
 Central orchestrator and unified workspace for the `tupynambalucas-dev` organization.
 
-This umbrella repository links autonomous corporate repositories via Git Submodules, providing unified cross-repository context, navigation, and developer orchestration while preserving independent Git histories, release cycles, and CI/CD pipelines.
+This umbrella repository orchestrates autonomous corporate repositories via [Mani](https://manicli.com) and multi-root IDE workspaces, providing unified cross-repository context, navigation, and developer orchestration while preserving completely independent Git histories, branches, release cycles, and CI/CD pipelines without Git submodule lockups or detached HEAD hazards.
 
 ---
 
@@ -12,20 +12,20 @@ This umbrella repository links autonomous corporate repositories via Git Submodu
 graph TD
   direction TB
 
-  Meta["org-core (Umbrella Meta-Repository)"]
+  Host["org-core (Mani Orchestrator & Workspace Host)"]
 
-  Meta --> Sub1[".github (Governance & Default Health)"]
-  Meta --> Sub2["agent-mesh (Enterprise AI Agent Mesh)"]
-  Meta --> Sub3["platform (Core Platform Monorepo)"]
-  Meta --> Sub4["docs (Sovereign Documentation Hub)"]
+  Host -. "mani sync" .-> Repo1[".github (Governance & Default Health)"]
+  Host -. "mani sync" .-> Repo2["agent-mesh (Enterprise AI Agent Mesh)"]
+  Host -. "mani sync" .-> Repo3["platform (Core Platform Monorepo)"]
+  Host -. "mani sync" .-> Repo4["docs (Sovereign Documentation Hub)"]
 
   classDef repo fill:#1e1e2e,stroke:#89b4fa,stroke-width:2px,color:#cdd6f4;
-  class Meta,Sub1,Sub2,Sub3,Sub4 repo;
+  class Host,Repo1,Repo2,Repo3,Repo4 repo;
 ```
 
-### Managed Submodules
+### Managed Repositories
 
-| Submodule | Target Branch | Purpose |
+| Repository | Target Branch | Purpose |
 | :--- | :--- | :--- |
 | [`.github`](./.github/README.md) | `main` | Organization-wide governance, community health files, public profile, and IDE templates. |
 | [`agent-mesh`](./agent-mesh/README.md) | `main` | Universal AI agent governance monorepo, shared MCP connectors, domain plugins, and modular skills. |
@@ -34,7 +34,7 @@ graph TD
 
 ### Multi-Root IDE Workspace
 
-Open [tupynambalucas-dev.code-workspace](./tupynambalucas-dev.code-workspace) in VS Code or Antigravity IDE to mount all four submodules (`.github`, `platform`, `docs`, `agent-mesh`) in a unified multi-root workspace with integrated synchronization tasks.
+Open [tupynambalucas-dev.code-workspace](./tupynambalucas-dev.code-workspace) in VS Code or Antigravity IDE to mount all four repositories (`.github`, `platform`, `docs`, `agent-mesh`) in a unified workspace with integrated Mani tasks.
 
 ---
 
@@ -52,8 +52,8 @@ The ecosystem implements a 3-tier fallback resolution architecture to ensure dev
 
 When opening the entire `org-core` repository:
 
-- You can maintain a root `.env` file (copied from `.env.example`) to provide shared credentials across all submodules.
-- Alternatively, launch your commands or AI agent CLI through Infisical:
+- You can maintain a root `.env` file (copied from `.env.example`) to provide shared credentials across all repositories.
+- Launch commands or AI agent CLI through Infisical:
 
 ```bash
 infisical run --projectId <PROJECT_ID> --env dev -- agy
@@ -61,11 +61,11 @@ infisical run --projectId <PROJECT_ID> --env dev -- agy
 
 #### B. Standalone Workspace Mode
 
-When developing within an isolated submodule directory (`agent-mesh/`, `platform/`, or `docs/`):
+When developing within an isolated repository directory (`agent-mesh/`, `platform/`, or `docs/`):
 
 - Each child repository contains its own `.env.example` template.
-- Copy `.env.example` to `.env` inside the submodule root to test and execute tools without dependencies on parent repositories.
-- Individual submodules can also be run directly with project-scoped Infisical commands:
+- Copy `.env.example` to `.env` inside the repository root to test and execute tools independently.
+- Individual repositories can also be run directly with project-scoped Infisical commands:
 
 ```bash
 # Inside agent-mesh:
@@ -79,47 +79,53 @@ infisical run --projectId <PLATFORM_PROJECT_ID> --env dev -- <command>
 
 ## Getting Started
 
-### 1. Clone with Submodules
+### 1. Prerequisites
 
-To clone the umbrella repository and all nested submodules in a single pass:
+Install `mani` using Scoop:
+
+```powershell
+scoop bucket add poldi https://github.com/aliesbelik/poldi
+scoop install mani
+```
+
+### 2. Clone Workspace and Synchronize Repositories
+
+Clone the umbrella orchestrator and initialize all child repositories:
 
 ```bash
-git clone --recurse-submodules git@github.com:tupynambalucas-dev/org-core.git
+git clone git@github.com:tupynambalucas-dev/org-core.git
 cd org-core
+mani sync
 ```
 
-### 2. Daily Synchronization
+### 3. Daily Multi-Repository Operations
 
-Fetch and merge the latest remote commits across all submodules:
-
-```bash
-git submodule update --remote --merge
-```
-
-To ensure submodules track their target branches rather than a detached HEAD:
+Run batch commands across all repositories with zero submodule overhead:
 
 ```bash
-git submodule foreach 'git checkout $(git config -f $toplevel/.gitmodules submodule.$name.branch || echo main)'
+# Check status across all projects
+mani run status
+
+# Fetch remote updates
+mani run fetch
+
+# Pull latest main across all projects
+mani run pull
+
+# Show active branches
+mani run branch
 ```
 
 ---
 
 ## Development Workflow and Governance
 
-All development in this meta-repository and its submodules must comply with organizational governance:
+All development across repositories must comply with organizational governance:
 
 1. **Cryptographic Signatures**: All Git commits and annotated tags MUST be signed using SSH (`git commit -S -m "..."`). Unsigned commits are rejected by repository rulesets.
 2. **Conventional Commits**: Commit messages must follow the Conventional Commits v1.0.0 specification (`feat`, `fix`, `docs`, `chore`, etc.).
 3. **Zero-Emoji Policy**: Emojis are strictly prohibited in commit messages, documentation, code comments, and chat responses.
-4. **Submodule Pointer Updates**: Direct human pushes to `main` are blocked by repository rulesets. After merging child Pull Requests into each submodule's `main` branch, advance submodule pointers in `org-core` via a signed Pull Request (or automated GitHub App GraphQL dispatch):
-
-```bash
-git switch -c chore/bump-submodules
-git add agent-mesh platform docs .github
-git commit -S -m "chore(submodules): bump submodule pointers to latest main commits"
-git push -u origin chore/bump-submodules
-gh pr create --base main --title "chore(submodules): bump submodule pointers to latest main commits"
-```
+4. **Autonomous Single-Branch GitHub Flow**: Each repository operates independently. Developers create feature branches (`feat/<slug>`, `fix/<slug>`), push them, and open Pull Requests against `main`. No submodule pointer bumps or cross-repo pointer synchronization PRs are needed.
 
 ---
 

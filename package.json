@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "license": "Apache-2.0",
-  "description": "Umbrella meta-repository orchestrating the tupynambalucas-dev ecosystem.",
+  "description": "Umbrella meta-repository orchestrating the tupynambalucas-dev ecosystem via Mani.",
   "type": "module",
   "scripts": {
-    "sync": "git submodule update --init --recursive --remote --merge",
-    "checkout:branches": "git submodule foreach 'git checkout $(git config -f $toplevel/.gitmodules submodule.$name.branch || echo main)'",
-    "status": "git submodule status",
+    "sync": "mani sync",
+    "status": "mani run status",
+    "pull": "mani run pull",
+    "fetch": "mani run fetch",
+    "branch": "mani run branch",
     "verify:workstation": "powershell -ExecutionPolicy Bypass -File agent-mesh/scripts/verify-workstation.ps1"
   }
 }

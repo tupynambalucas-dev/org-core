@@ -57,9 +57,21 @@
         "problemMatcher": []
       },
       {
-        "label": "Submodules: Update & Sync",
+        "label": "Mani: Sync Repositories",
         "type": "shell",
-        "command": "git submodule update --remote --merge",
+        "command": "mani sync",
+        "problemMatcher": []
+      },
+      {
+        "label": "Mani: Check Git Status",
+        "type": "shell",
+        "command": "mani run status",
+        "problemMatcher": []
+      },
+      {
+        "label": "Mani: Pull All Main",
+        "type": "shell",
+        "command": "mani run pull",
         "problemMatcher": []
       }
     ]
