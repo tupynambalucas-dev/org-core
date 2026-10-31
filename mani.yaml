@@ -77,4 +77,7 @@ tasks:
 
   verify-workstation:
     desc: Run organizational workstation verification script
-    cmd: powershell -ExecutionPolicy Bypass -File agent-mesh/scripts/verify-workstation.ps1
+    target:
+      projects:
+        - .github
+    cmd: powershell -ExecutionPolicy Bypass -File scripts/verify-workstation.ps1
