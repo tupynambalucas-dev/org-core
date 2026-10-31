@@ -1,23 +1,19 @@
 {
   "folders": [
     {
-      "name": "org-core (Meta-Repository Root)",
-      "path": "."
-    },
-    {
-      "name": ".github (Org Governance)",
+      "name": ".github",
       "path": ".github"
     },
     {
-      "name": "platform (Core Monorepo)",
+      "name": "platform",
       "path": "platform"
     },
     {
-      "name": "docs (Documentation Hub)",
+      "name": "docs",
       "path": "docs"
     },
     {
-      "name": "agent-mesh (Universal Agent Mesh)",
+      "name": "agent-mesh",
       "path": "agent-mesh"
     }
   ],
@@ -60,7 +56,7 @@
           "command": "wt.exe",
           "args": [
             "-d",
-            "${workspaceFolder:org-core (Meta-Repository Root)}",
+            "${workspaceFolder:.github}\\..",
             "powershell.exe",
             "-NoExit",
             "-Command",
