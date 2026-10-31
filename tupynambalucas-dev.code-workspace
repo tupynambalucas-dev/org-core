@@ -64,7 +64,7 @@
           "command": "wt.exe",
           "args": [
             "-d",
-            "${workspaceFolder:.github}\\..",
+            "${workspaceFolder:org-core}",
             "powershell.exe",
             "-NoExit",
             "-Command",
