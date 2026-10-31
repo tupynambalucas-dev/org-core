@@ -1,6 +1,10 @@
 {
   "folders": [
     {
+      "name": "org-core",
+      "path": "."
+    },
+    {
       "name": ".github",
       "path": ".github"
     },
@@ -20,7 +24,10 @@
   "settings": {
     "git.autoRepositoryDetection": true,
     "search.useIgnoreFiles": false,
+    "search.useGlobalIgnoreFiles": false,
+    "search.useParentIgnoreFiles": false,
     "search.exclude": {
+      "**/.github": false,
       "**/node_modules": true,
       "**/.pnpm-store": true,
       "**/.git": true,
@@ -29,6 +36,7 @@
       "**/.turbo": true
     },
     "files.exclude": {
+      "**/.github": false,
       "**/.git": false
     }
   },

@@ -1,6 +1,8 @@
 # Manifest specification: https://manicli.com
 # tupynambalucas-dev Organizational Workspace Manifest
 
+sync_gitignore: false
+
 projects:
   .github:
     path: .github
