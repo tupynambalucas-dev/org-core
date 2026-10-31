@@ -1,12 +1,19 @@
 {
   "search.useIgnoreFiles": false,
+  "search.useGlobalIgnoreFiles": false,
+  "search.useParentIgnoreFiles": false,
   "search.exclude": {
+    "**/.github": false,
     "**/node_modules": true,
     "**/.pnpm-store": true,
     "**/.git": true,
     "**/dist": true,
     "**/.docusaurus": true,
     "**/.turbo": true
+  },
+  "files.exclude": {
+    "**/.github": false,
+    "**/.git": false
   },
   "files.watcherExclude": {
     "**/.git/objects/**": true,
