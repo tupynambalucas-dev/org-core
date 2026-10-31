@@ -24,3 +24,10 @@ agent-toolkit/
 !*.env.example*
 
 *.pem
+
+# Managed Repositories (Orchestrated independently via mani)
+.github/
+agent-mesh/
+platform/
+docs/
+
