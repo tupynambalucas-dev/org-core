@@ -7,12 +7,13 @@ This document serves as the root context router (Layer 1) for AI agents operatin
 
 - [README.md](./README.md): Primary developer documentation and Mani workspace orchestration runbook.
 - [mani.yaml](./mani.yaml): Declarative multi-repository manifest managing repositories, remotes, and batch tasks.
-- [tupynambalucas-dev.code-workspace](./tupynambalucas-dev.code-workspace): Canonical multi-root IDE workspace binding all four core repositories.
+- [tupynambalucas-dev.code-workspace](./tupynambalucas-dev.code-workspace): Canonical multi-root IDE workspace binding all five core repositories.
 - [LICENSE](./LICENSE): Apache License 2.0 governing meta-repository orchestration assets.
 - [.github](./.github/AGENTS.md): Organization governance, community health standards, and public profile.
 - [agent-mesh](./agent-mesh/AGENTS.md): Enterprise AI agent mesh context router, MCP packages, domain plugins, and modular skills.
 - [platform](./platform/AGENTS.md): Core platform monorepo containing services, apps, and Kubernetes manifests.
 - [docs](./docs/AGENTS.md): Sovereign documentation hub built with Docusaurus v3 and Crowdin.
+- [gh-tl](./gh-tl/AGENTS.md): Enterprise GitHub CLI extension suite for developer onboarding and verification.
 
 ## Governance Standards
 

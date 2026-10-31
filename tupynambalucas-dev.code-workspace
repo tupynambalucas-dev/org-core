@@ -19,6 +19,10 @@
     {
       "name": "agent-mesh (Universal Agent Mesh)",
       "path": "agent-mesh"
+    },
+    {
+      "name": "gh-tl (CLI Extension Suite)",
+      "path": "gh-tl"
     }
   ],
   "settings": {
