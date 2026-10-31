@@ -18,9 +18,10 @@ graph TD
   Host -. "mani sync" .-> Repo2["agent-mesh (Enterprise AI Agent Mesh)"]
   Host -. "mani sync" .-> Repo3["platform (Core Platform Monorepo)"]
   Host -. "mani sync" .-> Repo4["docs (Sovereign Documentation Hub)"]
+  Host -. "mani sync" .-> Repo5["gh-tl (Enterprise CLI Suite)"]
 
   classDef repo fill:#1e1e2e,stroke:#89b4fa,stroke-width:2px,color:#cdd6f4;
-  class Host,Repo1,Repo2,Repo3,Repo4 repo;
+  class Host,Repo1,Repo2,Repo3,Repo4,Repo5 repo;
 ```
 
 ### Managed Repositories
@@ -31,10 +32,11 @@ graph TD
 | [`agent-mesh`](./agent-mesh/README.md) | `main` | Universal AI agent governance monorepo, shared MCP connectors, domain plugins, and modular skills. |
 | [`platform`](./platform/README.md) | `main` | Domain monorepo hosting Kubernetes manifests, Cortex AI gateway, studio tools, and services. |
 | [`docs`](./docs/README.md) | `main` | Sovereign documentation portal built on Docusaurus v3 with Crowdin localization. |
+| [`gh-tl`](./gh-tl/README.md) | `main` | Enterprise GitHub CLI extension suite for developer onboarding, verification gates, and tooling. |
 
 ### Multi-Root IDE Workspace
 
-Open [tupynambalucas-dev.code-workspace](./tupynambalucas-dev.code-workspace) in VS Code or Antigravity IDE to mount all four repositories (`.github`, `platform`, `docs`, `agent-mesh`) in a unified workspace with integrated Mani tasks.
+Open [tupynambalucas-dev.code-workspace](./tupynambalucas-dev.code-workspace) in VS Code or Antigravity IDE to mount all five repositories (`.github`, `platform`, `docs`, `agent-mesh`, `gh-tl`) in a unified workspace with integrated Mani tasks.
 
 ---
 

@@ -42,6 +42,16 @@ projects:
       - docusaurus
       - core
 
+  gh-tl:
+    path: gh-tl
+    url: git@github.com:tupynambalucas-dev/gh-tl.git
+    desc: Enterprise GitHub CLI extension suite for Tupynamba Lucas.
+    tags:
+      - tooling
+      - cli
+      - extension
+      - core
+
 targets:
   all:
     all: true
@@ -83,8 +93,8 @@ tasks:
     cmd: powershell -ExecutionPolicy Bypass -File scripts/verify-workstation.ps1
 
   onboard:
-    desc: Run workstation compliance verification via gh-onboard extension
+    desc: Run workstation compliance verification via gh-tl extension
     target:
       projects:
         - .github
-    cmd: gh onboard verify
+    cmd: gh tl verify
