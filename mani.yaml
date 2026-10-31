@@ -81,3 +81,10 @@ tasks:
       projects:
         - .github
     cmd: powershell -ExecutionPolicy Bypass -File scripts/verify-workstation.ps1
+
+  onboard:
+    desc: Run workstation compliance verification via gh-onboard extension
+    target:
+      projects:
+        - .github
+    cmd: gh onboard verify
