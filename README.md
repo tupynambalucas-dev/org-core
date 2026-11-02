@@ -45,7 +45,7 @@ Open [tupynambalucas-dev.code-workspace](./tupynambalucas-dev.code-workspace) in
 The ecosystem implements a 3-tier fallback resolution architecture to ensure development environments operate smoothly whether launched with or without active Infisical sessions:
 
 1. **Process Environment**: Variables already exported in the current shell session or injected via `infisical run`.
-2. **Local and Ancestor `.env` Files**: If environment variables are absent from the shell, tools like `agent-mesh/scripts/mcp-gateway-router.js` walk up the directory tree to discover `.env` files located in the current workspace or at the `org-core` root.
+2. **Local and Ancestor `.env` Files**: If environment variables are absent from the shell, tools like `agent-mesh plugin launchers (scripts/launcher.cjs)` walk up the directory tree to discover `.env` files located in the current workspace or at the `org-core` root.
 3. **Infisical CLI**: If neither process variables nor local `.env` files satisfy the requirements, the system invokes `infisical export` using authenticated machine credentials or local login sessions.
 
 ### Execution Modes
