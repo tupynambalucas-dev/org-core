@@ -62,7 +62,7 @@ tasks:
     target: all
     cmd: git status -s
     spec:
-      output: table
+      output: stream
 
   fetch:
     desc: Fetch latest changes from remote origin across all projects
