@@ -43,6 +43,38 @@ mani run pull
 mani run branch
 ```
 
+## AI Agent Plugin Consumption (Dual Consumption Model)
+
+The organization operates under a unified Dual Consumption Model for AI agent plugins and skills:
+
+1. **Meta-Repository Mode (`org-core`)**:
+   - The root [`.agents/plugins.json`](./.agents/plugins.json) registers local relative paths directly:
+     ```json
+     {
+       "entries": [
+         { "path": "agent-mesh/plugins/packages" },
+         { "path": "platform/.agents/plugins" }
+       ]
+     }
+     ```
+   - This enables real-time hot-reloading of agent plugins and MCP servers across the entire multi-root IDE workspace without intermediate package building or installation steps.
+2. **External & Standalone Monorepo Mode (`omnichannel`, `platform`, `docs`)**:
+   - External services and isolated child repositories consume the unified umbrella package `@tupynambalucas-dev/agent-mesh` via `catalogs.plugins-stack` in `pnpm-workspace.yaml`:
+     ```yaml
+     catalogs:
+       plugins-stack:
+         '@tupynambalucas-dev/agent-mesh': 'github:tupynambalucas-dev/agent-mesh'
+     ```
+   - Consumer `.agents/plugins.json` files declare:
+     ```json
+     {
+       "entries": [
+         { "path": "node_modules/@tupynambalucas-dev/agent-mesh/plugins/packages" }
+       ]
+     }
+     ```
+   - All 10 domain plugins (`appsheet`, `atelier`, `docusaurus`, `github-flow`, `github-org`, `gwork`, `repo`, `research`, `secrets`, `web`) and 8 sovereign MCP servers execute seamlessly via self-contained launchers (`scripts/launcher.cjs`) and committed bundles (`dist/bin.cjs`).
+
 ## Required Skills
 
 Agents operating at the `org-core` meta-repository layer MUST autonomously engage the domain skills provided by [`agent-mesh`](./agent-mesh/plugins/README.md):
