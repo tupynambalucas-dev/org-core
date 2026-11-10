@@ -79,6 +79,40 @@ infisical run --projectId <PLATFORM_PROJECT_ID> --env dev -- <command>
 
 ---
 
+## Enterprise AI Agent Mesh & Plugin Consumption Architecture
+
+The organization provisions AI agent capabilities (skills, rules, lifecycle hooks, and Model Context Protocol servers) using a **Dual Consumption Model**:
+
+```mermaid
+graph LR
+  subgraph LocalMetaRepo["org-core (Local Umbrella Mode)"]
+    OCP[".agents/plugins.json"] -->|relative path| AMP["agent-mesh/plugins/packages"]
+    OCP -->|relative path| PLP["platform/.agents/plugins"]
+  end
+
+  subgraph ExternalConsumers["External Repositories (omnichannel, platform, docs)"]
+    EPJ[".agents/plugins.json"] -->|umbrella package| NMA["node_modules/@tupynambalucas-dev/agent-mesh/plugins/packages"]
+  end
+
+  AMP -.->|releases to| NMA
+  classDef box fill:#1e1e2e,stroke:#89b4fa,stroke-width:2px,color:#cdd6f4;
+  class OCP,AMP,PLP,EPJ,NMA box;
+```
+
+### 1. Dual Consumption Modes
+
+| Mode | Environment | Discovery Manifest (`.agents/plugins.json`) | Package Dependency |
+| :--- | :--- | :--- | :--- |
+| **Meta-Repository Mode** | `org-core` Umbrella IDE Workspace | `agent-mesh/plugins/packages`<br>`platform/.agents/plugins` | None (zero build steps, direct local path resolution) |
+| **External Service Mode** | Standalone Repositories (`omnichannel`, `platform`, `docs`) | `node_modules/@tupynambalucas-dev/agent-mesh/plugins/packages` | `@tupynambalucas-dev/agent-mesh` via `catalogs.plugins-stack` |
+
+### 2. Sovereign MCP Launchers & Zero-Token Distribution
+
+- **Zero-Token Git Channel**: Projects consume `@tupynambalucas-dev/agent-mesh` via `github:tupynambalucas-dev/agent-mesh` without configuring private npm tokens or registry credentials.
+- **Sovereign MCP Execution**: MCP servers include standalone `dist/bin.cjs` bundles committed to Git and executed via `scripts/launcher.cjs`, completely eliminating runtime compile steps and external path dependencies in consumer projects.
+
+---
+
 ## Getting Started
 
 ### 1. Prerequisites
