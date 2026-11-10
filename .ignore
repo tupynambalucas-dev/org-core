@@ -3,3 +3,7 @@
 !platform/
 !docs/
 !gh-tl/
+!.agents/plans/
+!.agents/plans/**
+!plans/
+!plans/**
