@@ -29,6 +29,7 @@ graph TD
 | Repository | Target Branch | Purpose |
 | :--- | :--- | :--- |
 | [`.github`](./.github/README.md) | `main` | Organization-wide governance, community health files, public profile, and IDE templates. |
+| [`.github-private`](./.github-private/README.md) | `main` | Member-only profile, enterprise Copilot custom agents, managed AI settings, and internal references. |
 | [`agent-mesh`](./agent-mesh/README.md) | `main` | Universal AI agent governance monorepo, shared MCP connectors, domain plugins, and modular skills. |
 | [`platform`](./platform/README.md) | `main` | Domain monorepo hosting Kubernetes manifests, Cortex AI gateway, studio tools, and services. |
 | [`docs`](./docs/README.md) | `main` | Sovereign documentation portal built on Docusaurus v3 with Crowdin localization. |
@@ -36,7 +37,7 @@ graph TD
 
 ### Multi-Root IDE Workspace
 
-Open [tupynambalucas-dev.code-workspace](./tupynambalucas-dev.code-workspace) in VS Code or Antigravity IDE to mount all five repositories (`.github`, `platform`, `docs`, `agent-mesh`, `gh-tl`) in a unified workspace with integrated Mani tasks.
+Open [tupynambalucas-dev.code-workspace](./tupynambalucas-dev.code-workspace) in VS Code or Antigravity IDE to mount all six repositories (`.github`, `.github-private`, `platform`, `docs`, `agent-mesh`, `gh-tl`) in a unified workspace with integrated Mani tasks.
 
 ---
 

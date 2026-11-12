@@ -13,6 +13,16 @@ projects:
       - health
       - core
 
+  .github-private:
+    path: .github-private
+    url: git@github.com:tupynambalucas-dev/.github-private.git
+    desc: Organization-wide internal member profile, private governance, and enterprise AI settings repository.
+    tags:
+      - governance
+      - health
+      - private
+      - core
+
   agent-mesh:
     path: agent-mesh
     url: git@github.com:tupynambalucas-dev/agent-mesh.git

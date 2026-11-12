@@ -9,6 +9,10 @@
       "path": ".github"
     },
     {
+      "name": ".github-private (Private Governance & Member Profile)",
+      "path": ".github-private"
+    },
+    {
       "name": "platform (Core Monorepo)",
       "path": "platform"
     },
@@ -32,6 +36,7 @@
     "search.useParentIgnoreFiles": false,
     "search.exclude": {
       "**/.github": false,
+      "**/.github-private": false,
       "**/node_modules": true,
       "**/.pnpm-store": true,
       "**/.git": true,
@@ -41,6 +46,7 @@
     },
     "files.exclude": {
       "**/.github": false,
+      "**/.github-private": false,
       "**/.git": false
     }
   },
