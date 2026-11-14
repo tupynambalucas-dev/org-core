@@ -52,14 +52,14 @@ projects:
       - docusaurus
       - core
 
-  gh-tl:
-    path: gh-tl
-    url: git@github.com:tupynambalucas-dev/gh-tl.git
-    desc: Enterprise GitHub CLI extension suite for Tupynamba Lucas.
+  workstation:
+    path: workstation
+    url: git@github.com:tupynambalucas-dev/workstation.git
+    desc: Sovereign developer workstation engineering, WSL2 custom distributions, and CLI suite.
     tags:
+      - workstation
       - tooling
       - cli
-      - extension
       - core
 
 targets:
@@ -103,7 +103,7 @@ tasks:
     cmd: powershell -ExecutionPolicy Bypass -File scripts/verify-workstation.ps1
 
   onboard:
-    desc: Run workstation compliance verification via gh-tl extension
+    desc: Run workstation compliance verification via workstation extension
     target:
       projects:
         - .github

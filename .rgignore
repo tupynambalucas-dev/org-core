@@ -3,7 +3,7 @@
 !agent-mesh/
 !platform/
 !docs/
-!gh-tl/
+!workstation/
 !.agents/plans/
 !.agents/plans/**
 !plans/

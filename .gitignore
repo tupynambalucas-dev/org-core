@@ -34,7 +34,7 @@ keys/
 agent-mesh/
 platform/
 docs/
-gh-tl/
+workstation/
 # Agent Plans Container (Ignored by Git, preserved for local @ attachment via .ignore / .rgignore)
 .agents/plans/
 plans/
