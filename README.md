@@ -114,8 +114,8 @@ mani sync
 | `mani run fetch` | All repositories | Executes `git fetch origin --prune` across all managed repositories. |
 | `mani run pull` | All repositories | Pulls latest `main` branch updates across all managed repositories. |
 | `mani run branch` | All repositories | Displays the active Git branch for every repository in a formatted table. |
-| `mani run onboard` | `.github` | Runs workstation compliance verification via the `gh tl verify` CLI extension. |
-| `mani run verify-workstation` | `.github` | Runs the PowerShell workstation verification script (`scripts/verify-workstation.ps1`). |
+| `mani run onboard` | `foundation` | Runs workstation compliance verification via the `gh tl verify` CLI extension. |
+| `mani run verify-workstation` | `foundation` | Runs the workstation compliance verification script via `gh tl verify`. |
 
 ```bash
 # Execute daily multi-repository health checks

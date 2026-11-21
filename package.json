@@ -11,6 +11,6 @@
     "pull": "mani run pull",
     "fetch": "mani run fetch",
     "branch": "mani run branch",
-    "verify:workstation": "powershell -ExecutionPolicy Bypass -File agent-mesh/scripts/verify-workstation.ps1"
+    "verify:workstation": "gh tl verify"
   }
 }

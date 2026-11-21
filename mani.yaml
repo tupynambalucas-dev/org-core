@@ -97,15 +97,15 @@ tasks:
       output: table
 
   verify-workstation:
-    desc: Run organizational workstation verification script
+    desc: Run organizational workstation verification script via gh tl
     target:
       projects:
-        - .github
-    cmd: powershell -ExecutionPolicy Bypass -File scripts/verify-workstation.ps1
+        - foundation
+    cmd: gh tl verify
 
   onboard:
     desc: Run workstation compliance verification via workstation extension
     target:
       projects:
-        - .github
+        - foundation
     cmd: gh tl verify
